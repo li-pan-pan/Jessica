@@ -1,0 +1,18 @@
+#include<stdio.h>
+int main()
+{
+	//高位丢掉，低位补0
+	//000000000 000000000 0000000000 00000001
+	int a = 1;
+	int ret = a << 1;
+	printf("%d\n", ret);
+	ret = ret << 1;
+	printf("%d\n", ret);
+	ret = ret << 1;
+	printf("%d\n", ret);
+	ret = ret >> 1;
+	printf("%d\n", ret);
+	ret = ret >> 1;
+	printf("%d\n", ret);
+	return 0;
+}
