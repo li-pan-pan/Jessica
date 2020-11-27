@@ -1,0 +1,32 @@
+#include<stdio.h>
+int main()
+{
+	int a, b, c;
+	printf("请输入三个数： \n");
+	scanf("%d%d%d", &a, &b, &c);
+	int m = 0;
+	int n = 0;
+	int x = 0;
+	int y = 0;
+	int mad = 0;
+	m = a > b ? a : b;
+	n = m > c ? m : c;
+	x = a <b ? a : b;
+	y = x < c ? x : c;
+	if (a<n&&a>y)
+	{
+		mad = a;
+	}
+	if (b<n&&b>y)
+	{
+		mad = b;
+	}
+	if (c<n&&c>y )
+	{
+		mad = c;
+	}
+	printf("%d\n", n);
+	printf("%d\n", mad);
+	printf("%d\n", y);
+	return 0;
+}
