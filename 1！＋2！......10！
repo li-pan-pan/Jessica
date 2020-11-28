@@ -1,0 +1,22 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+int main()
+{
+	int N = 0;
+	int a = 10;
+	for (a = 10; a >= 1;a=a-1)
+	{
+		int i = 1;
+		int D = 0;
+		int M = 1;
+		while (i <= a)
+		{
+			M = M*i;
+			++i;
+			D = M;
+		}
+		N = N + D;
+	}
+	printf("%d\n", N);
+	return 0;
+}
