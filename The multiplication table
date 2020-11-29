@@ -1,0 +1,19 @@
+#include<stdio.h>
+int main()
+{
+	int i = 1;
+	int n = 1;
+	for (i = 1; i <= 9;i++)
+	{
+		int pro = 0;
+		int j = n;
+		while (j <= 9)
+		{
+			pro = i*j;
+			printf("%2d * %2d = %2d   ", i, j, pro);
+			++j;
+		}
+		printf("\n");
+		++n;
+	}
+}
