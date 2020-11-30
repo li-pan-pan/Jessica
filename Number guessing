@@ -1,0 +1,56 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<stdlib.h>
+void menu()
+{
+	printf("------------猜数字游戏----------\n");
+	printf("-----------按 1进入游戏---------\n");
+	printf("-----------按 2退出游戏---------\n");
+}
+int game()
+{
+	int m;
+	printf("请输入你的区间，0——多少\n");
+	scanf("%d", &m);
+	int x = rand() % m;
+	printf("你已经进入游戏,请输入你要猜的数字\n\n");
+	while (1)
+	{
+		int a;
+		scanf("%d", &a);
+		if (a < x)
+		{
+			printf("猜小了\n\n");
+		}
+		if (a>x)
+		{
+			printf("猜大了\n\n");
+		}
+		if (a == x)
+		{
+			printf("猜对了\n\n");
+			break;
+		}
+	}
+	return 0;
+}
+int main()
+{
+	while (1)
+	{
+		menu();
+		int n=0;
+		scanf("%d", &n);
+		if (n==1)
+		{
+			
+			game();
+		}
+		if (n==2)
+		{
+			break;
+		}
+	}
+	printf("游戏结束\n");
+
+}
