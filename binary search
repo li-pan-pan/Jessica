@@ -1,0 +1,26 @@
+#include<stdio.h>
+int main()
+{
+	int array[10] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+	int left = 0,right = 9;
+	int mid = 0;
+	int x = 0;
+	printf("%d\n", x);
+	while (left <= right)
+	{
+		mid = (left + right) / 2;
+		if (x < mid)
+		{
+			right = mid;
+		}
+		else if (x > mid)
+		{
+			left = mid+1;
+		}
+		else 
+		{
+			printf("找到%d了\n", x);
+			break;
+		}
+	}
+}
