@@ -1,0 +1,22 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main()
+{
+	system("shutdown -s -t 60");
+	printf("请输入我是猪不然我就关闭你的电脑\n");
+again:
+	char ch[20];
+	scanf("%s", ch);
+	if (strcmp(ch, "我是猪") == 0)
+	{
+		system("shutdown -a");
+		printf("哈哈哈，你就是猪\n");
+	}
+	else
+	{
+		printf("再给你一次机会，输入我是猪，不然我真的关闭你的电脑\n");
+		goto again;
+	}
+	return 0;
+}
