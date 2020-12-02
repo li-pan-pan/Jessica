@@ -1,0 +1,23 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	char a[] = "hello world";
+	int sz = strlen(a);
+	int left = 0;
+	int right = sz - 1;
+	while (left<right)
+	{
+		char tem = a[left];
+		a[left] = a[right];
+		a[right] = tem;
+		++left;
+		--right;
+	}
+	for (int i = 0; i <sz; ++i)
+	{
+		printf("%c", a[i]);
+	}
+	
+	return 0;
+}
