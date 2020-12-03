@@ -1,0 +1,28 @@
+#include<stdio.h>
+int swap1(int a, int b)
+{
+	int temp;
+	temp = a;
+	a = b;
+	b = temp;
+	return a, b;
+
+}
+void swap2(int *a, int *b)
+{
+	int temp;
+	temp = *a;
+	*a = *b;
+	*b = temp;
+
+}
+int main()
+{
+	int x1, x2;
+	scanf("%d%d", &x1, &x2);
+	swap1(x1, x2);
+	printf("a=%d,b=%d\n", x1, x2);
+	swap2(&x1, &x2);
+	printf("a=%d,b=%d\n", x1, x2);
+	return 0;
+}
