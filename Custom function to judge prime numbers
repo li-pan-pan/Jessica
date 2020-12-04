@@ -1,0 +1,27 @@
+#include<stdio.h>
+int IsPrimeNum(int num)
+{
+	for (int i = 2; i < num; ++i)
+	{
+		if (num%i == 0)
+		{
+			return 0;//是素数返回1，不是素数返回0
+		}
+	}
+
+}
+int main()
+{
+	int num = 0;
+	while (num <= 100)
+	{
+		int x=IsPrimeNum(num);
+		if (x != 0)
+		{
+			printf("%5d", num);
+		}
+		++num;
+
+	}
+	return 0;
+}
