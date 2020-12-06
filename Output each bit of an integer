@@ -1,0 +1,16 @@
+#include<stdio.h>
+#include<stdlib.h>
+void pri(int num)
+{
+	if (num > 9)
+	{
+		pri(num / 10);
+	}
+	printf("%d\n", num % 10);
+}
+int main()
+{
+	pri(1234);
+	system("pause");
+	return 0;
+}
