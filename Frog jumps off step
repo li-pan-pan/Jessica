@@ -1,0 +1,19 @@
+#include<stdio.h>
+int ways(int n)
+{
+	if (n<=1)
+	{
+		return 1;
+	}
+	else
+	{
+		return ways(n-2) + ways(n - 1);
+	}
+}
+int main()
+{
+	int n;
+	scanf("%d", &n);
+	printf("%d\n", ways(n));
+	return 0;
+}
