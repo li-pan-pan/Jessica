@@ -1,0 +1,18 @@
+#include<stdio.h>
+int sum(int x)
+{
+	if (x <= 9)
+	{
+		return x;
+	}
+	else
+	{
+		return x % 10 + sum(x / 10);
+	}
+}
+int main()
+{
+	int x;
+	scanf("%d", &x);
+	printf("%d",sum(x));
+}
