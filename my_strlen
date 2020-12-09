@@ -1,0 +1,22 @@
+#include<stdio.h>
+int my_strlen(char ch[])
+{
+	int i = 0;
+	while (i>=0)
+	{
+		if (ch[i] == '\0')
+		{
+			break;
+		}
+		else
+		{
+			++i;
+		}
+	}
+	return i+1;
+}
+int main()
+{
+	char ch[] = { "abcdefghijklmnopq" };
+	printf("%d\n", my_strlen(ch));
+}
