@@ -1,0 +1,23 @@
+#include<stdio.h>
+int CountBitNum(int x)
+{
+	int count = 0;
+	int i = 0;
+	while (i < 32)
+	{
+		if (x & 1 == 1)
+		{
+			++count;
+		}
+		x >>= 1;
+		++i;
+	}
+	return count;
+}
+int main()
+{
+	int x;
+	scanf("%d", &x);
+	printf("%d\n", CountBitNum(x));
+	return 0;
+}
