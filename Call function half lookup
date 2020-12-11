@@ -1,0 +1,45 @@
+#include<stdio.h>
+int reset(int*a,int n)
+{
+	while (n > 0)
+	{
+		a[n-1] = 0;
+		--n;
+	}
+	return 0;
+}
+int print(int *a,int n)
+{
+	int i = 0;
+	while (n > i)
+	{
+		printf("%d", a[i]);
+		++i;
+	}
+	printf("\n");
+	return 0;
+}
+int reverse(int *a,int n)
+{
+	int left = 0;
+	int right = n - 1;
+	while (right>=left)
+	{
+		a[left] = a[left] ^ a[right];
+		a[right] = a[left] ^ a[right];
+		a[left] = a[left] ^ a[right];
+		++left;
+		--right;
+	}
+	return 0;
+}
+int main()
+{
+	int a[10] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+	print(a, 10);
+	reverse(a, 10);
+	print(a, 10);
+	reset(a, 10);
+	print(a, 10);
+	return 0;
+}
