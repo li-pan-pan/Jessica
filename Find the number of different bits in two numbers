@@ -1,0 +1,18 @@
+#include<stdio.h>
+int main()
+{
+	int a = 1999, b = 2299;
+	int i = 1;
+	int count = 0;
+	while (i < 32)
+	{
+		if ((a & 1) != (b & 1))
+		{
+			++count;
+		}
+		++i;
+		a = a >> 1;
+		b = b >> 1;
+	}
+	printf("%d\n", count);
+}
