@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<string.h>
+void Reversed(char *a, int left, int right)
+{
+	if (left<right)
+	{
+		a[left] = a[left] ^ a[right];
+		a[right] = a[left] ^ a[right];
+		a[left] = a[left] ^ a[right];
+		Reversed(a, left + 1, right - 1);
+	}
+}
+void Print_arry(char *a,int sz)
+{
+	for (int i = 0; i <sz ; ++i)
+	{
+		printf("%c", *(a + i));
+	}
+}
+int main()
+{
+	char a[] = "hello world";
+	int sz = strlen(a);
+	int left = 0, right = sz - 1;
+	Print_arry(a, sz);
+	printf("\n");
+	Reversed(a, left, right);
+	Print_arry(a, sz);
+	printf("\n");
+	return 0;
+
+}
