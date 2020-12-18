@@ -1,0 +1,42 @@
+#include<stdio.h>
+int power(int n, int k)
+{
+	if (k == 0)
+	{
+		return 1;
+	}
+	else
+	{
+		return n * power(n, k - 1);
+	}
+}
+int count(int num)
+{
+	int count=0;
+	while (num)
+	{
+		num = num / 10;
+		++count;
+	}
+	return count;
+}
+int sum(int num, int count)
+{
+	if (num == 0)
+		return 0;
+	else
+		return power(num % 10, count) + sum(num / 10, count);
+}
+int main()
+{
+	printf("1---10000中水仙花数有：  ");
+	for (int num = 1; num <= 10000; ++num)
+	{
+		if (sum(num, count(num)) == num)
+		{
+			printf("%d  ", num);
+		}
+	}
+	printf("\n\n\n");
+	return 0;
+}
