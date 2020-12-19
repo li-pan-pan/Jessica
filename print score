@@ -1,0 +1,9 @@
+#include<stdio.h>
+int main()
+{
+    int num=0;
+    float c_score=0.f,math_score=0.f,english_score=0.f;
+    scanf("%d;%f,%f,%f",&num,&c_score,&math_score,&english_score);
+    printf("The each subject score of  No. %d is %.2f, %.2f, %.2f.\n",num,c_score,math_score,english_score);
+    return 0;
+}
