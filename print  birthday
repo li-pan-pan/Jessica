@@ -1,0 +1,10 @@
+#include<stdio.h>
+int main()
+{
+    int year,month,date,a;
+    scanf("%d",&a);
+    year=a/10000;
+    month=(a/100)%(year*100);
+    date=a%(year*10000+month*100);
+    printf("year=%d\nmonth=%02d\ndate=%02d\n",year,month,date);
+}
