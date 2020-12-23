@@ -1,0 +1,35 @@
+#include<stdio.h>
+#include<string.h>
+void adjust(int *arry,int size)
+{
+	int i = 0;
+	while (1)
+	{
+		if (arry[i] % 2 == 0)
+		{
+			for (int n = i; n < (size-1); ++n)
+			{
+				arry[n] = arry[n + 1] ^ arry[n];
+				arry[n+1] = arry[n + 1] ^ arry[n];
+				arry[n] = arry[n + 1] ^ arry[n];
+			}
+		}
+		else
+		{
+			++i;
+			if (i == (size-1))
+				break;
+		}
+	}
+}
+int main()
+{
+	int arry[] = {12,11,14,13,15,16,19,18};
+	int size = sizeof(arry) / sizeof(int);
+	adjust(arry, size);
+	for (int i=0; i < size; ++i)
+	{
+		printf("%d  ", arry[i]);
+
+	}
+}
