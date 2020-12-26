@@ -1,0 +1,8 @@
+#include<stdio.h>
+int main()
+{
+    int age=0;
+    scanf("%d",&age);
+    long long scand=31560000*age;
+    printf("%ld",scand);
+}
