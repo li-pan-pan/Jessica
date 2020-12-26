@@ -1,0 +1,8 @@
+#include<stdio.h>
+int main()
+{
+    float n=0;
+    scanf("%f",&n);
+    int m=n;
+    printf("%d\n",m%10);
+}
