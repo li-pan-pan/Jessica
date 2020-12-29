@@ -1,0 +1,35 @@
+#include<stdio.h>
+void change(char *arr, int size,int k)
+{
+	int i = 0;
+	while (k)
+	{
+		char temp = arr[k - 1];
+		arr[k - 1] = arr[size - 3 - i];
+		arr[size - 3 - i] = temp;//定义数组时“abcd”后面还存在\0
+		--k;
+		++i;
+	}
+}
+void print(char *arr,int size)
+{
+	for (int i = 0; i < size; ++i)
+	{
+		printf("%c", arr[i]);
+	}
+	printf("\n");
+}
+
+int main()
+{
+	char arr[] = "abcdefghigklmnopqrst ";
+	int size = sizeof(arr);
+	printf("请输入您想旋转几个字符？");
+    int k = 0;
+	scanf("%d", &k);
+	print(arr, size);
+	change(arr, size, k);
+	print(arr, size);
+
+	return 0;
+}
