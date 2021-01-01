@@ -6,6 +6,7 @@ int main()
 	int a = 10;
 	for (a = 10; a >= 1;a=a-1)
 	{
+
 		int i = 1;
 		int D = 0;
 		int M = 1;
