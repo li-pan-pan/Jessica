@@ -6,7 +6,6 @@ int swap1(int a, int b)
 	a = b;
 	b = temp;
 	return a, b;
-
 }
 void swap2(int *a, int *b)
 {
