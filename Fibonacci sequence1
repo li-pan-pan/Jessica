@@ -8,7 +8,6 @@ int Fib(int n)
 		i = j;
 		j = sum;
 		--n;
-
 	}
 	return sum;
 }
