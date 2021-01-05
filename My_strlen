@@ -16,5 +16,5 @@ int main()
 	char ch[] = {"as\nhudgy\\bhz"};
 	my_strlent(ch);
 	printf("%d", my_strlent(ch));
-
+        return 0;
 }
