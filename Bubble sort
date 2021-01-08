@@ -1,5 +1,5 @@
 #include<stdio.h>
-int sort(int *a,int n)
+void sort(int *a,int n)
 {
 	int end = n;
 	while (end>0)
