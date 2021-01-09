@@ -28,5 +28,4 @@ int main()
 	Print_arry(a, sz);
 	printf("\n");
 	return 0;
-
 }
