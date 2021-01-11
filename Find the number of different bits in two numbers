@@ -15,4 +15,5 @@ int main()
 		b = b >> 1;
 	}
 	printf("%d\n", count);
+        return 0;
 }
