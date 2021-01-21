@@ -1,0 +1,25 @@
+// 大端返回1，小端返回0，要求借用联合体的特性
+union Data
+{
+	int i;
+	char ch;
+};
+
+int isBigSystem()
+{
+	union Data d;
+	//d.i = 0x00000001;
+	d.i = 1;
+
+	if (d.ch == 1)
+		return 0;
+	else
+		return 1;
+}
+
+int main()
+{
+	printf("%d\n", isBigSystem());
+
+	return 0;
+}
