@@ -1,0 +1,22 @@
+int removeDuplicates(int* nums, int numsSize){
+    int dst=0,src=1;
+    if(numsSize<2)//这里是一个特殊情况，若数组内只有一个数字，则不用进行任何操作，直接返回原来的数组长度
+    {
+        return numsSize;
+    }
+    while(src<numsSize)
+    {
+        if(nums[dst]==nums[src])
+        {
+             ++src;
+        }
+        else
+        {
+            ++dst;
+            nums[dst]=nums[src];
+             ++src;
+        }
+    }
+    return dst+1;
+
+}
