@@ -1,0 +1,19 @@
+void swop(int p1,int p2,int* nums)
+{
+    while(p1<p2)
+    {
+       int temp=nums[p1];
+       nums[p1]=nums[p2];
+       nums[p2]=temp;
+       ++p1;
+       --p2;
+    }
+}
+void rotate(int* nums, int numsSize, int k){
+    if(k>numsSize)
+       k=k%numsSize;
+    swop(0,numsSize-k-1,nums);
+    swop(numsSize-k,numsSize-1,nums);
+    swop(0,numsSize-1,nums);
+
+}
