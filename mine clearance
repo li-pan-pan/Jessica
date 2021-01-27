@@ -1,0 +1,96 @@
+#include"game.h"
+
+void InitBoard(char arr[ROWS][COLS], int row, int col, char val)
+{
+	for (int i = 0; i < row; ++i)
+	{
+		for (int j = 0; j < col; ++j)
+		{
+			arr[i][j] = val;
+		}
+	}
+}
+
+void ShowBoard(char arr[ROWS][COLS], int row, int col)
+{
+	for (int i = 0; i < row; ++i)
+	{
+		printf("%d ", i);
+	}
+	printf("\n");
+
+	for (int i = 1; i < row; ++i)
+	{
+		printf("%d ", i);
+		for (int j = 1; j <= col; ++j)
+		{
+			if (arr[i][j] >= '1'&&arr[i][j] < '9')
+			{
+				printf("%c ", arr[i][j]);
+			}
+			else
+			{
+				printf("%c ", arr[i][j]);
+			}
+		}
+		printf("\n");
+	}
+	printf("\n");
+}
+
+void GenerateMine(char arr[ROWS][COLS], int row, int col, int difficulty)
+{
+	while (difficulty)
+	{
+		int i = rand() % row + 1;
+		int j = rand() % col + 1;
+		if (arr[i][j] == '0')
+		{
+			arr[i][j] = '1';
+			--difficulty;
+		}
+	}
+}
+
+int GetMine(char mine[ROWS][COLS], int i, int j)
+{
+	int n = mine[i - 1][j - 1] + mine[i - 1][j] + mine[i - 1][j + 1] + mine[i][j - 1] + mine[i][j + 1] + mine[i + 1][j - 1] + mine[i + 1][j] + mine[i + 1][j + 1];
+	return n - 8 * '0';
+}
+
+void SearchMine(char mine[ROWS][COLS], char show[ROWS][COLS], int i, int j)
+{
+	if (i<1 || i>ROW || j<1 || j>COL)
+	{
+		return;
+	}
+	show[i][j] = ' ';
+	int posArr[8][2] = { { i - 1, j - 1 }, { i - 1, j }, { i - 1, j + 1 }, { i, j - 1 }, { i, j + 1 }, { i + 1, j - 1 }, { i + 1, j }, { i + 1, j + 1 } };
+
+	//8个方向空格进行搜索
+	for (int k = 0; k < 8; ++k)
+	{
+		int row = posArr[k][0];
+		int col = posArr[k][1];
+
+		//已经搜索过的位置不在探索
+		if ((show[row][col] >= '1'&&show[row][col] <= '8') || show[row][col] == ' ')
+		{
+			continue;
+		}
+		//1、如果此方向一圈有雷，则显示雷数量，不再往下搜索
+		//2、如果此方向一圈没有雷，则递归继续往它周边搜索
+		int mineNum = 0;
+		mineNum = GetMine(mine, row, col);
+		if (mineNum > 0)
+		{
+			show[row][col] = mineNum + '0';
+		}
+		else
+		{
+			SearchMine(mine, show, row, col);
+		}
+
+	}
+
+}
