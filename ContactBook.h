@@ -20,6 +20,7 @@ typedef struct ContactBook
 {
 	Contact array[CONTACT_BOOK_MAX];
 	int size;
+
 }ContactBook;
 
 
