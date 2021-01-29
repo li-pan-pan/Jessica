@@ -1,0 +1,32 @@
+class Partition {
+public:
+  ListNode* partition(ListNode* pHead, int x) {
+    // write code here
+    struct ListNode* head1=NULL,* head2=NULL,* tail1=NULL,* tail2=NULL;
+    head1=tail1=(ListNode*)malloc(sizeof(ListNode));
+    head2=tail2=(ListNode*)malloc(sizeof(ListNode));
+    while(pHead)
+    {
+      if(pHead->val<x)
+      {
+        tail1->next=pHead;
+        tail1=tail1->next;
+        pHead=pHead->next;
+      }
+      else
+      {
+        tail2->next=pHead;
+        tail2=tail2->next;
+        pHead=pHead->next;
+      }
+    }
+    tail1->next=head2->next;
+    struct ListNode* l=head1->next;
+    tail2->next=NULL;
+    free(head1);
+    free(head2);
+    head1=NULL;
+    head2=NULL;
+    return l;
+  }
+};
