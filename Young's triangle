@@ -1,0 +1,43 @@
+#include<stdio.h>
+int main()
+{
+	int x = 0;
+	printf("请输入需要寻找的数\n");
+	scanf("%d", &x);
+	int arr[5][5] = { { 1, 2, 3, 4, 5 }, 
+	                  { 6, 7, 8, 9, 10 }, 
+					  { 11, 12, 13, 14, 15 }, 
+					  { 16, 17, 18, 19, 20 }, 
+					  { 21, 22, 23, 24, 25 } };
+	int i = 0;
+	int flog = 0, flog2 = 0;
+	while (i < 5)
+	{
+		if (arr[i][0] <= x)
+		{
+			int j = 0;
+			while (j < 5)
+			{
+				if (arr[i][j] == x)
+				{
+					printf("找到了%d！\n", x);
+					break;
+					flog=1;
+				}
+				++j;
+				++flog2;
+			}
+		}
+		if (flog >0)
+		{
+			break;
+		}
+		if (flog2 == 25)
+		{
+			printf("没找到%d", x);
+		}
+		++i;
+	}
+	return 0;
+
+}
