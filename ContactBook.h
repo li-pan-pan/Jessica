@@ -22,8 +22,6 @@ typedef struct ContactBook
 	int size;
 
 }ContactBook;
-
-
 void ContactBookInit(ContactBook* pcb);
 void ContactBookAdd(ContactBook* pcb, Contact* pc);
 void ContactBookDel(ContactBook* pcb, char* name);
