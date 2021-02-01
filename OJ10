@@ -1,0 +1,47 @@
+struct ListNode* reverseList(struct ListNode* cur)
+{
+  if(cur==NULL&&cur->next==NULL)
+  {
+    return cur;
+  }
+  struct ListNode* pre,* next;
+  pre=NULL,next=cur->next;
+  while(cur)
+  {
+    cur->next=pre;
+    pre=cur;
+    cur=next;
+    if(next!=NULL)
+      next=next->next;
+  }
+  free(next);
+  next=NULL;
+  return pre;
+}
+class PalindromeList {
+public:
+  bool chkPalindrome(ListNode* A) {
+    // write code here
+    struct ListNode* slow,* fast;
+    slow=fast=A;
+    while(fast&&fast->next)
+    {
+      slow=slow->next;
+      fast=fast->next->next;
+    }
+    struct ListNode*part1=A,*part2=reverseList(slow);
+    while(part1&&part2)
+    {
+      if(part1->val==part2->val)
+      {
+        part1=part1->next;
+        part2=part2->next;
+      }
+      else
+      {
+        return false;
+      }
+    }
+    return true;
+  }
+};
