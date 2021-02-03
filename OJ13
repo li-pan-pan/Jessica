@@ -1,0 +1,45 @@
+class Solution {
+public:
+    ListNode* deleteDuplication(ListNode* pHead)
+    {
+        if(pHead==NULL||pHead->next==NULL)
+            return pHead;
+        ListNode* prev=NULL,* cur=pHead,*next=pHead->next;
+        while(next)
+        {
+            if(cur->val!=next->val)
+            {
+                prev=cur;
+                cur=next;
+                next=next->next;
+            }
+            else
+            {
+                while(next&&next->val==cur->val)
+                {
+                    next=next->next;
+                }
+                while(cur!=next)
+                {
+                    struct ListNode* del=cur;
+                    cur=cur->next;
+                    free(del);
+                }
+                if(prev==NULL)
+                {
+                    pHead=cur;
+                }
+                else
+                {
+                    prev->next=cur;
+                }
+            }
+            if(cur)
+            {
+                next=cur->next;
+            }
+        }
+        return pHead;
+
+    }
+};
