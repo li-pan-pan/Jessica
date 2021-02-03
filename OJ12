@@ -1,0 +1,46 @@
+struct ListNode* insertionSortList(struct ListNode* head){
+    if(head==NULL||head->next==NULL)
+    {
+        return head;
+    }
+    struct ListNode* sortHead=head;
+    struct ListNode* node=head->next;
+    sortHead->next=NULL;
+    while(node)
+    {
+        struct ListNode* nodeNext=node->next;
+
+        struct ListNode* prev=NULL;
+        struct ListNode* cur=sortHead;
+        while(cur)
+        {
+            if(node->val<cur->val)
+            {
+                if(prev==NULL)
+                {
+                    node->next=cur;
+                    sortHead=node;
+                }
+                else
+                {
+                    prev->next=node;
+                    node->next=cur;
+                }
+                break;
+            }
+            else
+            {
+                prev=cur;
+                cur=cur->next;
+            }
+        }
+        if(cur==NULL)
+        {
+            prev->next=node;
+            node->next=cur;
+        }
+        node=nodeNext;
+    }
+    return sortHead;
+
+}
