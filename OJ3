@@ -16,3 +16,4 @@ void rotate(int* nums, int numsSize, int k){
     swop(numsSize-k,numsSize-1,nums);
     swop(0,numsSize-1,nums);
 }
+
