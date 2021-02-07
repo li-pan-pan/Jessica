@@ -38,5 +38,6 @@ struct ListNode *getIntersectionNode(struct ListNode *headA, struct ListNo
             headB=headB->next;
         }
     }
+
     return NULL;
 }
