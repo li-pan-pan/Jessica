@@ -9,6 +9,5 @@ int main()
 
     float Q=w/(pow(h,2))*10000;
     printf("%.2f",Q);
-
     return 0;
 }
