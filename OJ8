@@ -28,5 +28,6 @@ public:
     head1=NULL;
     head2=NULL;
     return l;
+
   }
 };
