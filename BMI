@@ -6,7 +6,6 @@ int main()
     scanf("%d %d",&w,&h);
     w=(float)w;
     h=(float)h;
-
     float Q=w/(pow(h,2))*10000;
     printf("%.2f",Q);
     return 0;
