@@ -91,6 +91,7 @@ ListNode* ListFind(ListNode* pHead, LTDataType x)
 		}
 		cur = cur->next;
 	}
+
 	return NULL;
 }
 void ListInsert(ListNode* pos, LTDataType x)
