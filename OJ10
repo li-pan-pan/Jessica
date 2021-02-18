@@ -21,7 +21,6 @@ struct ListNode* reverseList(struct ListNode* cur)
 class PalindromeList {
 public:
   bool chkPalindrome(ListNode* A) {
-    // write code here
     struct ListNode* slow,* fast;
     slow=fast=A;
     while(fast&&fast->next)
