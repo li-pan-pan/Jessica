@@ -4,8 +4,10 @@ struct ListNode* reverseList(struct ListNode* cur)
   {
     return cur;
   }
+
   struct ListNode* pre,* next;
   pre=NULL,next=cur->next;
+
   while(cur)
   {
     cur->next=pre;
