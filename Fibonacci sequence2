@@ -16,5 +16,4 @@ int main()
 	scanf("%d", &n);
 	printf("%d\n", Fib(n));
 	return 0;
-
 }
