@@ -41,6 +41,5 @@ struct ListNode* insertionSortList(struct ListNode* head){
         }
         node=nodeNext;
     }
-
     return sortHead;
 }
