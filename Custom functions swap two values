@@ -24,4 +24,5 @@ int main()
 	swap2(&x1, &x2);
 	printf("a=%d,b=%d\n", x1, x2);
 	return 0;
+
 }
