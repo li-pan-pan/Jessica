@@ -91,4 +91,5 @@ Contact* ContactBookSearch(ContactBook* pcb, char* name)
 	}
 	printf("查无此人\n");
 	return NULL;
+
 }
