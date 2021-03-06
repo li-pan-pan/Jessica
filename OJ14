@@ -1,0 +1,44 @@
+bool isValid(char * s){
+    Stack st;
+    StackInit(&st);
+    while(*s)
+    {
+        if(*s == '('|| *s == '['|| *s == '{')
+        {
+            StackPush(&st,*s);
+            ++s;
+        }
+        else
+        {
+            if(StackEmpty(&st))
+            {
+                StackDestroy(&st);
+                return false;
+            }
+            char top = StackTop(&st);
+            StackPop(&st);
+            if(*s == ')' && top == '('
+            ||*s == ']' && top == '['
+            ||*s == '}' && top == '{')
+            {
+                 ++s;
+            }
+            else
+            {
+                StackDestroy(&st);
+                return false;
+            }
+        }
+    }
+    if(StackEmpty(&st))
+    {
+        StackDestroy(&st);
+        return true;
+    }
+    else
+    {
+        StackDestroy(&st);
+        return false;
+    }
+
+}
