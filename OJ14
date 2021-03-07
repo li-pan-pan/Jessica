@@ -40,5 +40,4 @@ bool isValid(char * s){
         StackDestroy(&st);
         return false;
     }
-
 }
