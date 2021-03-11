@@ -1,0 +1,59 @@
+#include<stdio.h>
+void AdjustDown(int *a, int n, int root)
+{
+	int parent = root;
+	int child = parent * 2 + 1;
+	while (child < n)
+	{
+		//child指向左右孩子中小的那一个
+		if (child + 1 < n&&a[child + 1] < a[child])
+		{
+			++child;
+		}
+		if (a[child] < a[parent])
+		{
+			int tmp = a[parent];
+			a[parent] = a[child];
+			a[child] = tmp;
+
+			parent = child;
+			child = child * 2 + 1;
+		}
+		else
+		{
+			break;
+		}
+	}
+}
+
+void HeapSort(int *a, int n)
+{
+	//简历出大堆，建堆时间复杂度O（N）
+	for (int i = (n - 1 - 1) / 2; i >= 0; --i)
+		AdjustDown(a, n, i);
+	//每次选出剩下数中最大的，从后往前放O（NlogN)
+	int end = n - 1;
+	while (end > 0)
+	{
+		int tmp = a[end];
+		a[end] = a[0];
+		a[0] = tmp;
+
+		AdjustDown(a, end, 0);
+		--end;
+	}
+}
+
+int main()
+{
+	int a[] = { 27, 28, 98, 45, 67, 34, 56, 86, 23, 43, 54, 21 };
+	int n = sizeof(a) / sizeof(int);
+	HeapSort(a, n);
+	for (int i = 0; i < n; ++i)
+	{
+		printf("%d  ", a[i]);
+	}
+	printf("\n");
+
+	return 0;
+}
