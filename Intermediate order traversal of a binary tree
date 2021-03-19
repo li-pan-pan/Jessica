@@ -1,0 +1,26 @@
+ int treeSize(struct TreeNode *root)
+{
+    if(root==NULL)
+    {
+        return 0;
+    }
+    return treeSize(root->left)+treeSize(root->right)+1;
+}
+void InOrder(struct TreeNode *root,int *arr,int *pi)
+{
+    if(root==NULL)
+    {
+        return;
+    }
+    InOrder(root->left,arr,pi);
+    arr[(*pi)++]=root->val;
+    InOrder(root->right,arr,pi);
+}
+int* inorderTraversal(struct TreeNode* root, int* returnSize){
+     *returnSize=treeSize(root);
+    int* arr=(int *)malloc(*returnSize*sizeof(int));
+    int pi=0;
+    InOrder(root,arr,&pi);
+    return arr;
+
+}
