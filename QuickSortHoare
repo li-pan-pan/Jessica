@@ -1,0 +1,23 @@
+// 快速排序hoare版本
+void PartSort1(int* a, int left, int right)
+{
+	if (left >= right)
+		return;
+	int begin = left, end = right;
+	int ikey = begin;
+	while (end > begin)
+	{
+		while (end > begin&&a[end] >= a[ikey])
+			--end;
+
+		while (end > begin&&a[begin] <= a[ikey])
+			++begin;
+
+		swap(&a[begin], &a[end]);	
+	}
+	swap(&a[ikey], &a[end]);
+	ikey = end;
+
+	PartSort1(a, left, ikey - 1);
+	PartSort1(a, ikey + 1, right);
+}
