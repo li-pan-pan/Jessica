@@ -1,1 +1,44 @@
 
+void PartSort3(int* a, int left, int right)
+{
+	if (left >= right)
+		return;
+	int cur = left, prev = left - 1;
+	int ikey = right;
+	while (cur != ikey)
+	{
+		while (a[cur] < a[ikey] && ++prev != cur)
+			swap(&a[prev], &a[cur]);
+		++cur;
+	}
+	swap(&a[++prev], &a[ikey]);
+	ikey = prev;
+	PartSort3(a, left, ikey - 1);
+	PartSort3(a, ikey + 1, right);
+}
+void QuickSort(int* a, int left, int right)
+{
+	int mid = GetMidIndex(a, left, right);
+	swap(&a[mid], &a[right]);
+	if (left >= right)
+		return;
+
+	int begin = left, end = right;
+	int key = a[begin];
+	while (end > begin)
+	{
+		while (begin < end&&a[end] >= key)
+			--end;
+
+		a[begin] = a[end];
+
+		while (begin < end&&a[begin] <= key)
+			++begin;
+
+		a[end] = a[begin];
+	}
+	int hold = begin;
+	a[begin] = key;
+	PartSort2(a, left, hold - 1);
+	PartSort2(a, hold + 1, right);
+}
