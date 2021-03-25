@@ -1,0 +1,31 @@
+void QuickSort(int* a, int left, int right)
+{
+    if (left >= right)
+        return;
+    
+    int begin = left, end = right;
+    int key = a[begin];
+    while (end > begin)
+    {
+        while (begin < end&&a[end] >= key)
+            --end;
+
+        a[begin] = a[end];
+
+        while (begin < end&&a[begin] <= key)
+            ++begin;
+
+        a[end] = a[begin];
+    }
+    int hold = begin;
+    a[begin] = key;
+    QuickSort(a, left, hold - 1);
+    QuickSort(a, hold + 1, right);
+}
+int* sortArray(int* nums, int numsSize, int* returnSize){
+    QuickSort(nums,0,numsSize-1);
+    *returnSize = numsSize;
+    return nums;
+
+
+}
