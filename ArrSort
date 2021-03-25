@@ -26,6 +26,4 @@ int* sortArray(int* nums, int numsSize, int* returnSize){
     QuickSort(nums,0,numsSize-1);
     *returnSize = numsSize;
     return nums;
-
-
 }
