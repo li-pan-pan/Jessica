@@ -1,0 +1,47 @@
+void QuickSortNonR(int* a, int left, int right)
+{
+	Stack st;
+	StackInit(&st);
+	StackPush(&st, right);
+	StackPush(&st, left);
+	while (!StackEmpty(&st))
+	{
+		int _left = StackTop(&st);
+		StackPop(&st);
+		int _right = StackTop(&st);
+		StackPop(&st);
+
+		int mid = GetMidIndex(a, _left, _right);
+		swap(&a[mid], &a[_right]);
+
+		int begin = _left, end = _right;
+
+		int key = a[begin];
+		while (end > begin)
+		{
+			while (begin < end&&a[end] >= key)
+				--end;
+
+			a[begin] = a[end];
+
+			while (begin < end&&a[begin] <= key)
+				++begin;
+
+			a[end] = a[begin];
+		}
+		int hold = begin;
+		a[begin] = key;
+		if (hold + 1 < _right)
+		{
+			StackPush(&st, _right);
+			StackPush(&st, hold + 1);
+		}
+		if (_left < hold - 1)
+		{
+			StackPush(&st, hold - 1);
+			StackPush(&st, _left);
+		}
+	}
+	StackDestroy(&st);
+
+}
