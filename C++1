@@ -1,0 +1,165 @@
+#include<iostream>
+using namespace std;
+
+int Add(int left, int right)
+{
+	return left + right;
+}
+short Add(int left, int right)
+{
+	return left + right;
+}
+
+double Add(double left, double right)
+{
+	return left + right;
+}
+
+long Add(long left, long right)
+{
+	return left + right;
+}
+
+int main()
+{
+	Add(10, 20);
+	Add(10.0, 20.0);
+	Add(10L, 20L);
+}
+
+
+
+
+////a.h
+//void TestFun(int a = 10);
+//
+////a.c
+//void TestFun(int a = 20)
+//{}
+//
+////注意：如果声明与定义位置同时出现，恰巧两个位置提供的值不同，那编译器就无法确定到底该用哪个缺省值
+
+
+//void TestFunc(int a=0 , int b = 20, int c = 30)
+//{
+//	cout << "a= " << a << endl;
+//	cout << "b= " << b << endl;
+//	cout << "c= " << c << endl;
+//}
+//
+//int main()
+//{
+//	TestFunc(90);
+//}//void TestFunc(int a = 0)
+//{
+//	cout << a << endl;
+//}
+//int main()
+//{
+//	TestFunc();
+//	TestFunc(10);
+//}
+//int main()
+//{
+//	int a;
+//	double b;
+//	char c;
+//
+//	cin >> a;
+//	cin >> b >> c;
+//
+//	cout << a << endl;
+//	cout << b << " " << c << endl;
+//	return 0;
+//}
+
+
+
+
+
+
+//int main()
+//{
+//	cout << "Hello world!!!" << endl;
+//	return 0;
+//}
+
+//#include<iostream>
+//
+////1、普通的命名空间
+//namespace N1  //N1为命名空间的名称
+//{
+//	//命名空间中的内容，既可以定义定量，也可以定义函数
+//	int a;
+//	int Add(int left, int right)
+//	{
+//		return left + right;
+//	}
+//}
+//
+////2、命名空间可以嵌套
+//namespace N2
+//{
+//	int a;
+//	int b;
+//	int Add(int left, int right)
+//	{
+//		return left + right;
+//	}
+//
+//	namespace N3
+//	{
+//		int c;
+//		int d;
+//		int Sub(int left, int right)
+//		{
+//			return left - right;
+//		}
+//	}
+//}
+//
+////3、同一个工程中允许存在多个相同名称的命名空间，编译器最后会合成同一个命名空间
+//namespace N1
+//{
+//	int Mul(int left, int right)
+//	{
+//		return left*right;
+//	}
+//}
+//
+//namespace N
+//{
+//	int a = 10;
+//	int b = 20;
+//	int Add(int left, int right)
+//	{
+//		return left + right;
+//	}
+//	int Sub(int left, int right)
+//	{
+//		return left - right;
+//	}
+//}
+//int main()
+//{
+//	printf("%d\n", N::a);//该语句编译出错，无法识别a
+//	return 0;
+//}
+
+//using N::b;
+//int main()
+//{
+//	printf("%d\n", N::a);
+//	printf("%d\n", b);
+//	return 0;
+//}
+
+
+//using namespace N;
+//int main()
+//{
+//	printf("%d\n", N::a);
+//	printf("%d\n", b);
+//	Add(10, 20);
+//	return 0;
+//}
