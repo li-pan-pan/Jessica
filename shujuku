@@ -1,0 +1,5 @@
+create database StudScore_DB2
+on primary
+(name='StudScore_DB2_data',filename='D:\sjk\StudScore_DB2.mdf')
+log on
+(name='StudScore_DB2_log',filename='D:\sjk\StudScore_DB2.ldf');
