@@ -42,5 +42,6 @@ void QuickSortNonR(int* a, int left, int right)
 			StackPush(&st, _left);
 		}
 	}
+
 	StackDestroy(&st);
 }
