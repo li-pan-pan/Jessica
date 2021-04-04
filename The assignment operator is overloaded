@@ -1,0 +1,32 @@
+class String
+{
+public:
+	String(const char* str = "")
+	{
+		_str = (char*)malloc(strlen(str) + 1);
+		strcpy(_str, str);
+	}
+	String(const String &s)
+	{
+		//深拷贝
+		_str = (char*)malloc(strlen(s._str) + 1);
+		strcpy(_str, s._str);
+	}
+	~String()
+	{
+		cout << "~String()" << endl;
+		free(_str);
+	}
+	String& operator=(const String &s)
+	{
+		free(_str);
+		if (this != &s)
+		{
+			_str = (char*)malloc(strlen(s._str) + 1);
+			strcpy(_str, s._str);
+		}
+		return *this;
+	}
+private:
+	char* _str;
+};
