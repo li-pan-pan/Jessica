@@ -26,10 +26,6 @@ int main()
 	Add(10.0, 20.0);
 	Add(10L, 20L);
 }
-
-
-
-
 ////a.h
 //void TestFun(int a = 10);
 //
