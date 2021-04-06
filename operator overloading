@@ -1,0 +1,47 @@
+#include<iostream>
+using namespace std;
+
+class Test
+{
+public:
+	//Test t;
+	Test(int data=0)
+	{
+		m_data = data;
+		cout<<"Create Test Obj:"<<this<<endl;
+	}
+	//Test t1 = t
+	Test(Test &t)
+	{
+		cout<<"Copy Create Test Obj : "<<this<<endl;
+		m_data = t.m_data;
+	}
+	//t1 = t2
+	Test& operator=(const Test &t)//赋值语句 =重载
+	{
+		cout<<"Assgin."<<this<<" : "<<&t<<endl;
+		if(this != &t)
+		{
+			m_data = t.m_data;
+		}
+		return *this;
+	}
+	//
+	~Test()
+	{
+		cout<<"Free Test Obj:"<<this<<endl;
+	}
+private:
+	int m_data;
+};
+
+void main()
+{
+	Test t(100); 
+	Test t1 = t;  //初始化 拷贝构造
+	Test t2(t1);  //拷贝构造
+
+	Test t3;
+	t3 = t2;     //赋值
+	//t3.operator=(t2);
+}
