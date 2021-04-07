@@ -17,5 +17,4 @@ int main()
 		++n;
 	}
 	printf("%.10f\n", sum);
-
 }
