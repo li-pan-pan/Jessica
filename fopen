@@ -1,0 +1,31 @@
+    1 #include<stdio.h>
+    2 #include<string.h>
+    3 #include<unistd.h>
+    4 int main()
+    5 {
+    6     FILE *fp=fopen("./bite","a+");
+    7     if(fp==NULL)
+    8     {
+    9         perror("fopen");
+   10         return 0;
+   11     }
+   12     printf("fopen success\n");
+   13 
+   14     char buf[1024]={0};
+   15     strcpy(buf,"I like Linux");
+   16 
+   17     size_t write_size=fwrite(buf,3,4,fp);
+   18     printf("write_size:%1u\n",write_size);
+   19 
+   20     fseek(fp,0,SEEK_SET);
+   21 
+   22     memset(buf,'\0',sizeof(buf));
+   23     size_t read_size=fread(buf,1,27,fp);
+   24 
+   25     printf("read_size:%1u,buf is %s\n",read_size,buf);                                                                                                                                             
+   26 
+   27     fclose(fp);
+   28 
+   29     return 0;
+   30 }
+
