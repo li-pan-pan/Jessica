@@ -1,0 +1,26 @@
+    1 #include<stdio.h>
+    2 #include<fcntl.h>
+    3 
+    4 int main()
+    5 {
+    6     int fd=open("./bite",O_RDWR|O_CREAT,0777);
+    7     if(fd<=0)
+    8     {
+    9         perror("open\n");
+   10         return 0;
+   11     }
+   12     printf("fd is %d\n",fd);
+   13 
+   14     write(fd,"I like Linux",12);                                                                       
+   15 
+   16     lseek(fd,0,SEEK_SET);
+   17 
+   18     char buf[1024]={0};
+   19     read(fd,buf,sizeof(buf)-1);
+   20     printf("buf:%s\n",buf);
+   21 
+   22     close(fd);
+   23 
+   24     return 0;
+   25 }
+
