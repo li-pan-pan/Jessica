@@ -1,0 +1,52 @@
+#include<iostream>
+#include<iomanip>
+using namespace std;
+class Date
+{
+friend istream &operator>>(istream& _cin,Date &d);
+public:
+    int GetMonthDay(int year,int month)
+    {
+        static int days[13]={0,31,28,31,30,31,30,31,31,30,31,30,31};
+        _day=days[month];
+        if(month==2&&((year%4==0&&year%100!=0)||(year%400==0)))
+        {
+            ++_day;
+        }
+        return _day;
+    }
+    int GetDay()
+    {
+        int month=1;
+        int day=0;
+        day+=_day;
+        while(month<_month)
+        {
+            day+=GetMonthDay(_year,month);
+            ++month;
+        }
+        return day;
+    }
+    
+//private:
+    int _year;
+    int _month;
+    int _day;
+};
+istream& operator>>(istream& _cin,Date &d)
+{
+    _cin>>d._year;
+    _cin>>d._month;
+    _cin>>d._day;
+        
+    return _cin;
+}
+int main()
+{
+    Date d;
+    while(cin>>d)
+    {
+        int day = d.GetDay();
+        cout<<day<<endl;
+    }
+}
