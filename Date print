@@ -1,0 +1,70 @@
+#include<iostream>
+#include<iomanip>
+using namespace std;
+
+class Date
+{
+friend ostream &operator<<(ostream &_cout,const Date& d);
+friend istream &operator>>(istream &_cin,Date& d);
+public:
+    int GetMonthDay(int year,int month)
+    {
+        static int days[13] = {0,31,28,31,30,31,30,31,31,30,31,30,31};
+        int day = days[month];
+        if(month==2&&((year%4==0&&year%100!=0)||(year%400==0)))
+        {
+            ++day;
+        }
+        return day;
+    }
+     Date(int year=0,int month=1,int day=0)
+    {
+        _year=year;
+        _month=month;
+        _day=day;
+    }
+    Date& operator += (int day)
+    {
+        _day+=day;
+        while(_day>GetMonthDay(_year,_month))
+        {
+            _day-=GetMonthDay(_year,_month);
+            ++_month;
+            if(_month==13)
+            {
+                _month=1;
+                ++_year;
+            }
+        }
+        return *this;
+    }
+    
+private:
+    int _year;
+    int _month;
+    int _day;
+};
+ostream &operator<<(ostream &_cout,const Date& d)
+{
+    _cout<<setw(4)<<setfill('0')<<d._year<<"-";
+    _cout<<setw(2)<<setfill('0')<<d._month<<"-";
+    _cout<<setw(2)<<setfill('0')<<d._day;
+    return _cout;
+}
+istream &operator>>(istream &_cin,Date& d)
+{
+    _cin>>d._year;
+    return _cin;
+}
+int main()
+{
+    Date d;
+    while(cin>>d)
+    {
+       int day;
+       cin>>day;
+       d+=day;
+       cout<<d;
+       cout<<endl;
+    }
+}
