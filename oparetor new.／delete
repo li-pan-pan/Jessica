@@ -1,0 +1,40 @@
+class Test
+{
+public:
+	Test(int d=0): _data(d)
+	{
+		cout << "Test():" << this << endl;
+	}
+	~Test()
+	{
+		cout << "~Test():" << this << endl;
+	}
+public:
+	void* operator new(size_t sz)
+	{
+		void *ptr = malloc(sz);
+		return ptr;
+	}
+	void operator delete(void *ptr)
+	{
+		free(ptr);
+	}
+	void* operator new[](size_t sz)
+	{
+		void *ptr = malloc(sz);
+		return ptr;
+	}
+	void operator delete[](void *ptr)
+	{
+		free(ptr);
+	}
+private:
+	int _data;
+};
+
+
+void main()
+{
+	Test *pt = new Test[10];
+	delete []pt;
+}
