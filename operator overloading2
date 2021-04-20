@@ -1,0 +1,35 @@
+class Test{
+public:
+	explicit Test(int data ,char tmp = '0') : m_data(data)
+    { }
+
+    Test(const Test &t)
+    {
+        m_data = t.m_data;
+    }
+
+    ~Test(){
+        cout << "free to object: " << this << endl;
+    }
+
+    Test& operator=(const Test& t)
+    {
+        if(this != &t)
+        {
+            m_data = t.m_data;
+        }
+    }
+
+    Test* operator&()
+    {
+        return this;
+    }
+
+   const Test *operator&() const
+    {
+        return this;
+    }
+
+	private:
+		int m_data;
+};
