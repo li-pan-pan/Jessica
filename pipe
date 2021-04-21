@@ -1,0 +1,23 @@
+ 1 #include<stdio.h>  
+  2 #include<fcntl.h>  
+  3 #include<unistd.h>  
+  4 int main()  
+  5 {  
+  6     //创建管道  
+  7     int fd[2];  
+  8     int ret1 = pipe(fd);  
+  9     if(ret1 < 0)
+ 10     {
+ 11         perror("pipe\n");
+ 12         return 0;
+ 13     }                                                                                                                                               
+ 14                                                                                                                            
+ 15     //获取读端的文件描述符属性                                                                                             
+ 16     int ret = fcntl(fd[0],F_GETFL);                                                                                        
+ 17     printf("read-->fd[0]-->ret:%d\n",ret);                                                                                 
+ 18                                                                                                                            
+ 19     //获取写端的文件描述符属性                                                                                             
+ 20     ret = fcntl(fd[1],F_GETFL);                                                                                            
+ 21     printf("write-->fd[1]-->ret:%d\n",ret);                                                                                
+ 22     return 0;                                                                                                              
+ 23 }    
