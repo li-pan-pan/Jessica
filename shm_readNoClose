@@ -1,0 +1,66 @@
+ 1 #include<stdio.h>
+  2 #include<unistd.h>
+  3 #include<fcntl.h>
+  4 #include<errno.h>
+  5 
+  6 void SetNonBlock(int fd)
+  7 {
+  8     int flag=fcntl(fd,F_GETFL);
+  9     fcntl(fd,F_SETFL,flag|O_NONBLOCK);
+ 10 }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+ 11 
+ 12 int main()
+ 13 {
+ 14     int fd[2];
+ 15     int ret=pipe(fd);
+ 16     if(ret<0)
+ 17     {
+ 18         perror("pipe");
+ 19         return 0;
+ 20     }
+ 21 
+ 22     ret=fork();
+ 23     if(ret<0)
+ 24     {
+ 25         perror("fork");
+ 26         return 0;
+ 27     }
+ 28     else if(ret==0)
+ 29     {
+ 30         //child
+ 31         close(fd[0]);
+ 32         SetNonBlock(fd[1]);
+ 33         int count=0;
+ 34         while(1)
+ 35         {
+ 36             int write_size=write(fd[1],"a",1);
+ 37             if(write_size<0)
+ 38             {
+ 39                 printf("write_size:%d\n",write_size);
+ 40                 if(errno==EAGAIN)
+ 41                 {
+ 42                     //将管道写满了
+ 43                     break;
+ 44                 }
+ 45             }
+ 46             printf("count:%d\n",count++);
+ 47         }
+ 48 
+ 49         while(1)
+ 50         {
+ 51             sleep(1);
+ 52         }
+ 53     }
+ 54     else
+ 55     {
+ 56         //father
+ 57         close(fd[1]);
+ 58         //close(fd[0]);
+ 59         while(1)
+ 60         {
+ 61             sleep(1);
+ 62         }
+ 63     }
+ 64     return 0;
+ 65 
+ 66 }
