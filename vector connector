@@ -1,0 +1,20 @@
+#include<iostream>
+#include<vector>
+
+int main()
+{
+	std::vector<int> arr1;                           //无参构造
+	std::vector<int> arr2(4, 100);                   //构造并初始化4个100
+	std::vector<int> arr3(arr2.begin(), arr2.end()); //拷贝构造arr2,从begin到end
+	std::vector<int> arr4(arr3);                     //拷贝构造arr3
+
+	//迭代器初始化部分
+	int array[] = { 13, 32, 45, 34 };
+	std::vector<int> arr5(array, array + sizeof(array) / sizeof(int));
+
+	for (std::vector<int>::iterator it = arr5.begin(); it != arr5.end(); ++it)
+		std::cout << ' ' << *it;
+
+	return 0;
+
+}
