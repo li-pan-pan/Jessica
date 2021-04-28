@@ -1,0 +1,58 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
+void PrintVector(const vector<int>& v)
+{
+	//const对象使用const迭代器进行遍历打印
+	vector<int>::const_iterator it = v.begin();
+	while (it != v.end())
+	{
+		cout << *it << " ";
+		++it;
+	}
+	cout << endl;
+}
+
+int main()
+{
+	//使用push_back插入8个数据
+	vector<int>arr;
+	arr.push_back(1);
+	arr.push_back(2);
+	arr.push_back(3);
+	arr.push_back(4);
+	arr.push_back(5);
+	arr.push_back(6);
+	arr.push_back(7);
+	arr.push_back(8);
+
+	//使用迭代器进行遍历打印
+	vector<int>::iterator it = arr.begin();
+	while (it != arr.end())
+	{
+		cout << *it << " ";
+		++it;
+	}
+	cout << endl;
+
+	//使用迭代器进行修改
+	it = arr.begin();
+	while (it != arr.end())
+	{
+		*it *= 2;
+		++it;
+	}
+
+	//使用反向迭代器进行遍历再打印
+	vector<int>::reverse_iterator rit = arr.rbegin();
+	while (rit != arr.rend())
+	{
+		cout << *rit << " ";
+		++rit;
+	}
+	cout << endl;
+
+	PrintVector(arr);
+	return 0;
+}
