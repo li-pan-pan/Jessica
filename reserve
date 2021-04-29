@@ -1,0 +1,52 @@
+//vector::reserve
+#include<iostream>
+#include<vector>
+using namespace std;
+
+int main()
+{
+	size_t sz;
+	vector<int>arr;
+	sz = arr.capacity();
+	cout << "make arr grow:\n";
+	for (int i = 0; i < 100; ++i)
+	{
+		arr.push_back(i);
+		if (sz != arr.capacity())
+		{
+			sz = arr.capacity();     //这里由于size会发生改变所以会导致capacity重复改变，频繁开辟空间
+			cout << "capacity changed: " << sz << '\n';
+		}
+	}
+
+	vector<int>arr2;
+	sz = arr2.capacity();
+	arr2.reserve(100);   //和上面的不同，首先预留出100个空间
+	cout << "make arr grow:\n";
+	for (int i = 0; i < 100; ++i)
+	{
+		arr.push_back(i);
+		if (sz != arr2.capacity())
+		{
+			sz = arr2.capacity();
+			cout << "capacity changed: " << sz << '\n';
+		}
+	}
+	return 0;
+}
+/*运行结果
+make arr grow :                     make arr2 grow :
+capacity changed : 1                capacity changed : 100
+capacity changed : 2   
+capacity changed : 3
+capacity changed : 4
+capacity changed : 6
+capacity changed : 9
+capacity changed : 13
+capacity changed : 19
+capacity changed : 28
+capacity changed : 42
+capacity changed : 63
+capacity changed : 94
+capacity changed : 141
+*/
