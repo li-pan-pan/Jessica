@@ -1,0 +1,14 @@
+class Solution {
+public:
+    vector<int> reversePrint(ListNode* head) {
+        vector<int>arr1;
+        ListNode* tmp=head;
+        while(tmp)
+        {
+            arr1.push_back(tmp->val);
+            tmp=tmp->next;
+        }
+        vector<int>arr2(arr1.rbegin(),arr1.rend());
+        return arr2;
+    }
+};
