@@ -1,0 +1,30 @@
+class Solution {
+public:
+    ListNode* deleteNode(ListNode* head, int val) {
+        ListNode* cur=head->next;
+        ListNode* pre=head;
+        if(head->val==val)
+        {
+            head=head->next;
+            return head;
+        }
+        while(cur)
+        {
+            if(cur->val==val)
+            {
+                if(cur->next==NULL)
+                {
+                    pre->next=NULL;
+                    return head;
+                }
+                pre->next=cur->next;
+                cur=cur->next;
+                return head;
+            }
+            cur=cur->next;
+            pre=pre->next;
+        }
+        return head;
+
+    }
+};
