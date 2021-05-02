@@ -1,0 +1,18 @@
+class Solution {
+public:
+    ListNode* getKthFromEnd(ListNode* head, int k) {
+        ListNode* back=head;
+        ListNode* front=head;
+        while(k-1)
+        {
+            front=front->next;
+            --k;
+        }
+        while(front->next)
+        {
+            front=front->next;
+            back=back->next;
+        }
+        return back;
+    }
+};
