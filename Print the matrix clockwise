@@ -1,0 +1,88 @@
+class Solution {
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        vector<int>arr;
+        if(matrix.size()==0)
+        {
+            return arr;
+        }
+        int endi=matrix.size();
+        int endj=matrix[0].size();
+        int sum=endi*endj;
+        if(endi==1)
+        {
+            for(int j=0;j<endj;++j)
+            {
+                arr.push_back(matrix[0][j]);
+            }
+            return arr;
+        }
+        if(endj==1)
+        {
+            for(int i=0;i<endi;++i)
+            {
+                arr.push_back(matrix[i][0]);
+            }
+            return arr;
+        }
+        int i=0,j=0,n=0;
+        while((n<endj)&&(n<endi))
+        {
+            while(j<endj)
+            {
+                if(sum==0)
+                {
+                    break;
+                }
+                arr.push_back(matrix[i][j]);
+                --sum;
+                ++j;
+            }
+            --j;
+            ++i;
+            while(i<endi)
+            {
+                if(sum==0)
+                {
+                    break;
+                }
+                arr.push_back(matrix[i][j]);
+                --sum;
+                ++i;
+            }
+            --j;
+            --i;
+            while(j>=n)
+            {
+                if(sum==0)
+                {
+                    break;
+                }
+                arr.push_back(matrix[i][j]);
+                --sum;
+                --j;
+            }
+            //++n;
+            ++j;
+            --i;
+            while(i>n)
+            {
+                if(sum==0)
+                {
+                    break;
+                }
+                arr.push_back(matrix[i][j]);
+                --sum;
+                --i;
+                
+            }
+            ++n;
+            ++j;
+            ++i;
+            --endi;
+            --endj;
+            
+        }
+        return arr;
+    }
+};
