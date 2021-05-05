@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        int count=0;
+        int i=0;
+        for(i=0;i<nums.size();++i)
+        {
+            if(nums[i]==target)
+            {
+                while(nums[i]==target)
+                {
+                    ++count;
+                    ++i;
+                    if(i>=nums.size())
+                    {
+                        break;
+                    }
+                }
+                break;
+            }
+        }
+        
+        return count;
+    }
+};
