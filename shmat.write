@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+#include <sys/shm.h>
+
+#define KEY 0x77777777
+
+int main()
+{
+    int shmid = shmget(KEY, 1024, IPC_CREAT | 0664);//创建共享内存
+    if(shmid < 0)
+    {
+        perror("shmget");
+        return 0;
+    }
+
+    //附加到当前的进程
+    void* addr = shmat(shmid, NULL, 0);
+    if(addr == NULL)
+    {
+        perror("shmat");
+        return 0; 
+    }
+
+    //往共享内存写当中写
+    sprintf((char*)addr, "%s", "i am process");
+    shmdt(addr);
+    return 0;
+}
