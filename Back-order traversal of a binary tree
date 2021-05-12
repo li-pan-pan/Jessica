@@ -22,5 +22,4 @@ int* postorderTraversal(struct TreeNode* root, int* returnSize){
     int pi=0;
     PostOrder(root,arr,&pi);
     return arr;
-
 }
