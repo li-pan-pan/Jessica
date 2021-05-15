@@ -1,0 +1,27 @@
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        bool flag=true;
+        for(int i=0,j=s.length()-1;i<s.size()&&i<=j;i++,j--)
+        {
+            while(((s[i]>'9'&&s[i]<'A')||s[i]<'0'||s[i]>'z'||(s[i]>'Z'&&s[i]<'a'))&&i<=j){
+                i++;
+            }
+            while(((s[j]>'9'&&s[j]<'A')||s[j]<'0'||s[j]>'z'||(s[j]>'Z'&&s[j]<'a'))&&i<=j){
+                j--;
+            }
+            if(i>j){
+                return flag;
+            }
+            if((s[i]<='9'&&s[i]>='0'&&s[j]>='A'&&s[j]<='Z')||(s[j]<='9'&&s[j]>='0'&&s[i]>='A'&&s[i]<='Z')){
+                return false;
+            }
+            if(s[i]!=s[j]&&s[i]-('a'-'A')!=s[j]&&s[i]+('a'-'A')!=s[j]){
+                flag=false;
+                break;
+            }
+        }
+        return flag;
+
+    }
+};
