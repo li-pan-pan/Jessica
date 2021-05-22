@@ -17,7 +17,6 @@ void PostOrder(struct TreeNode *root,int *arr,int *pi)
     PostOrder(root->right,arr,pi);
     arr[(*pi)++]=root->val;
 }
-
 int* postorderTraversal(struct TreeNode* root, int* returnSize){
      *returnSize=treeSize(root);
     int* arr=(int *)malloc(*returnSize*sizeof(int));
