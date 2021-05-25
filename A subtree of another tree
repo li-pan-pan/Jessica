@@ -24,6 +24,5 @@ bool isSubtree(struct TreeNode* s, struct TreeNode* t){
     {
         return false;
     }
-    return isSubtree(s->left,t)||
-    isSubtree(s->right,t);
+    return isSubtree(s->left,t)||isSubtree(s->right,t);
 }
