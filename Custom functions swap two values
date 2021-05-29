@@ -13,7 +13,6 @@ void swap2(int *a, int *b)
 	temp = *a;
 	*a = *b;
 	*b = temp;
-
 }
 int main()
 {
