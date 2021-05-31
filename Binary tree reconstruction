@@ -34,7 +34,6 @@ void InOrderTree(TreeNode* root)
     printf("%c ",root->val);
     InOrderTree(root->right);
 }
-
 int main()
 {
     char str[100];
