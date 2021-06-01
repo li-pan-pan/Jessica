@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int N;
+    cin>>N;
+    if(N==0||N==1)
+    {
+        cout<<"0";
+        return 0;
+    }
+    int f0=0,f1=1;
+    int f2=0;
+    while(f1<N)
+    {
+        f2=f0+f1;
+        f0=f1;
+        f1=f2;
+    }
+    int X1=f1-N;
+    int X2=N-f0;
+    if(X1<X2)
+    {
+        cout<<X1;
+    }
+    else
+    {
+        cout<<X2;
+    }
+    return 0;
+}
