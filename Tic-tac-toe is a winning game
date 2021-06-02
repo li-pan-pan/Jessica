@@ -1,0 +1,19 @@
+class Board {
+public:
+    bool checkWon(vector<vector<int> > board) {
+        // write code here
+        int i1=board[0][0]+board[0][1]+board[0][2];
+        int i2=board[1][0]+board[1][1]+board[1][2];
+        int i3=board[2][0]+board[2][1]+board[2][2];
+        int j1=board[0][0]+board[1][0]+board[2][0];
+        int j2=board[0][1]+board[1][1]+board[2][1];
+        int j3=board[0][2]+board[1][2]+board[2][2];
+        int m=board[0][0]+board[1][1]+board[2][2];
+        int n=board[0][2]+board[1][1]+board[2][0];
+        if(i1==3||i2==3||i3==3||j1==3||j2==3||j3==3||m==3||n==3)
+        {
+            return true;
+        }
+        return false;
+    }
+};
