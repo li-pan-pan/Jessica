@@ -14,6 +14,7 @@ int main()
             s1.erase(m,1);
         }
      }
+
      cout<<s1<<endl;
      return 0;
 }
