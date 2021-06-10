@@ -192,5 +192,4 @@ int BinaryTreeComplete(BTNode* root)
 		}
 	}
 	return 1;
-
 }
