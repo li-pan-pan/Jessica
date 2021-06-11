@@ -10,7 +10,6 @@
  10        perror("open");
  11        return 0;
  12    }
- 13 
  14    while(1)
  15    {
  16        write(fd,"I am process A",14);
@@ -18,5 +17,4 @@
  18    }
  19    close(fd);
  20    return 0;
- 21 
  22 }
