@@ -1,7 +1,6 @@
     #include<stdio.h>
   2 #include<unistd.h>
-  3 #include<fcntl.h>
-  4 
+  3 #include<fcntl.h> 
   5 int main()
   6 {
   7    int fd=open("_shm.c",O_RDWR);                                                                                                        
