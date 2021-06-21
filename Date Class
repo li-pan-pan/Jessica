@@ -227,7 +227,6 @@ void test()
 {
 	Date d1(2001, 9, 3);
 	d1 += 30;
- 
 }
 int main()
 {
