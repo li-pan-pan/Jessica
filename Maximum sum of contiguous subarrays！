@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int FindGreatestSumOfSubArray(vector<int> array) {
+       if(array.empty())
+           return 0;
+        vector<int> maxF(array.size()+1);
+        maxF[1] = array[0];
+        for(int i = 2;i <= array.size();++i)
+        {
+                maxF[i] = max(maxF[i-1]+array[i-1],array[i-1]);
+        }
+        
+        int ret = maxF[1];
+        
+        for(int i = 2; i <= array.size();++i)
+        {
+            ret = max(ret,maxF[i]);
+        }
+        
+        
+        return ret;
+    }
+};
