@@ -19,4 +19,5 @@ sum += item;
 }
 printf("%d\n", sum);
 return 0；
+
 }
