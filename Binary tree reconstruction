@@ -42,4 +42,5 @@ int main()
     TreeNode* tree=rebulidTree(str,&pi);
     InOrderTree(tree);
     printf("\n");
+
 }
