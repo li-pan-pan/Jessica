@@ -43,5 +43,4 @@ void QuickSortNonR(int* a, int left, int right)
 		}
 	}
 	StackDestroy(&st);
-
 }
