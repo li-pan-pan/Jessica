@@ -4,4 +4,5 @@ public:
         // write code here
         return n + (m << j);
     }
+
 };
