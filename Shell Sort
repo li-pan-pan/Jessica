@@ -1,0 +1,25 @@
+void ShellSort(int *arr, int n)
+{
+	int gap = n;
+	while (gap > 1)
+	{
+		//每次将gap缩小一半
+		gap /= 2;
+		for (int i = 0; i < n-gap; ++i)
+		{
+			int end = i;
+			int temp = arr[end + gap];
+			while (end >= 0)
+			{
+				if (temp < arr[end])
+				{
+					arr[end + gap] = arr[end];
+					end-=gap;
+				}
+				else
+					break;
+			}
+			arr[end+gap] = temp;
+		}
+	}
+}
