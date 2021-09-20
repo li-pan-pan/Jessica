@@ -1,0 +1,30 @@
+void swap(int *x, int *y)
+{
+	int temp = *x;
+	*x = *y;
+	*y = temp;
+}
+
+void SelectSort(int *arr, int n)
+{
+	//参与单趟排序的第一个数和最后一个数的下标
+	int begin = 0, end = n - 1;
+	while (begin < end)
+	{
+		int max = begin;//max最大值的下标
+		int min = begin;//min最大值的下标
+		for (int i = begin; i <= end; ++i)
+		{
+			if (arr[i]>arr[max])
+				max = i;
+			if (arr[i] < arr[min])
+				min = i;
+		}
+		swap(&arr[min], &arr[begin]);//最小值放在开头
+		if (begin == max)//防止最大的数在begin位置被换走
+			max = min;
+		swap(&arr[max], &arr[end]);
+		++begin;
+		--end;
+	}
+}
