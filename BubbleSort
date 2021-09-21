@@ -1,1 +1,18 @@
 
+void BubbleSort(int *arr, int n)
+{
+	int end = n;
+	while (end)
+	{
+		int flag = 0;
+		for (int i = 1; i < end; ++i)
+		{
+			if (arr[i - 1]>arr[i])
+			{
+				swap(&arr[i], &arr[i - 1]);
+				flag = 1;
+			}
+		}
+		--end;
+	}
+}
