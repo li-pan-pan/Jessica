@@ -1,0 +1,20 @@
+void QuickSort(int *arr, int begin, int end)
+{
+	//若只存在一个数，则区间不存在
+	if (begin >= end)
+		return;
+	int left = begin, right = end-1;
+	int key = begin;
+	while (begin < end)
+	{
+		while (arr[end] >= arr[key] && end>begin)
+			--end;
+		while (arr[begin] <= arr[key] && end > begin)
+			++begin;
+		swap(&arr[begin], &arr[end]);
+	}
+	swap(&arr[end], &arr[key]);
+	key = end;
+	QuickSort(arr, left, key - 1);
+	QuickSort(arr, key + 1, right);
+}
