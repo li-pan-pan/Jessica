@@ -1,0 +1,19 @@
+void AdjustDown(int *a, int n, int root)
+{
+	int parent = root;
+	int child = parent * 2 + 1;
+	while (child<n)
+	{
+		//保证孩子节点child为两个孩子中的最小值；保证不越界
+		if (a[child] > a[child + 1] && child+1 < n)
+			++child;
+		if (a[child] < a[parent])
+		{
+			swap(&a[child], &a[parent]);
+			parent = child;
+			child = parent * 2 + 1;
+		}
+		else
+			break;
+	}
+}
