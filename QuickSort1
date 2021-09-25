@@ -1,0 +1,24 @@
+void QuickSort1(int *arr, int begin, int end)
+{
+	//若只存在一个数，则区间不存在
+	if (begin >= end)
+		return;
+	int left = begin, right = end;
+	int key = arr[begin];
+	while (begin < end)
+	{
+		while (arr[end] >= key && end>begin)
+			--end;//找小
+		arr[begin] = arr[end];//小的放左边的坑里
+		while (arr[begin] <= key && end > begin)
+			++begin;//找大
+		arr[end] = arr[begin];//大的放右边的坑里
+	}
+	arr[begin] = key;
+	int keyi = begin;
+	QuickSort1(arr, left, keyi - 1);
+	QuickSort1(arr, keyi + 1, right);
+}
+
+int PartSort(int *arr, int begin, int end)
+{
