@@ -1,0 +1,45 @@
+int PartSort(int *arr, int begin, int end)
+{
+	int key = arr[begin];
+	while (begin < end)
+	{
+		while (key <= arr[end] && begin < end)
+			--end;
+		arr[begin] = arr[end];
+		while (key >= arr[begin] && begin < end)
+			++begin;
+		arr[end] = arr[begin];
+	}
+	arr[begin] = key;
+	int meeti = begin;
+	return meeti;
+}
+
+
+void QuickSort2(int *arr, int begin, int end)
+{
+	stack<int>st;
+	st.push(end);
+	st.push(begin);
+	while (!st.empty())
+	{
+		int left = st.top();//左区间
+		st.pop();
+		int right = st.top();//右区间
+		st.pop();
+		int mid = PartSort(arr, left, right);
+		//当左区间>=mid-1则证明左区间已经排好序
+		if (left < mid - 1)
+		{
+			st.push(mid - 1);
+			st.push(left);
+		}
+		//当mid+1>=右区间则证明区间已将排好序
+		if (right>mid + 1)
+		{
+			st.push(right);
+			st.push(mid + 1);
+		}
+	}
+
+}
