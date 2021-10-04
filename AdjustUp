@@ -1,0 +1,15 @@
+void AdjustUp(int *a, int child)
+{
+	int parent = (child - 1) / 2;
+	while (child > 0)
+	{
+		if (a[parent] > a[child])
+		{
+			swap(&a[parent], &a[child]);
+			child = parent;
+			parent = (child - 1) / 2;
+		}
+		else
+			break;
+	}
+}
